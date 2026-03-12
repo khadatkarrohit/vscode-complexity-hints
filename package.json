@@ -1,9 +1,9 @@
 {
   "name": "vscode-complexity-hints",
-  "displayName": "Complexity Hints",
+  "displayName": "Cyclomatic Complexity Hints",
   "description": "Shows cyclomatic complexity score inline next to each function definition",
-  "version": "0.1.0",
-  "publisher": "personal",
+  "version": "0.1.1",
+  "publisher": "rohitkhadatkar18",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -19,6 +19,7 @@
     "javascript"
   ],
   "activationEvents": [
+    "onStartupFinished",
     "onLanguage:typescript",
     "onLanguage:javascript",
     "onLanguage:typescriptreact",

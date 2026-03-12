@@ -1,4 +1,16 @@
-# vscode-complexity-hints
+# Cyclomatic Complexity Hints
+
+## Installation
+
+1. Open VS Code
+2. Go to the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`)
+3. Search for **"Cyclomatic Complexity Hints"**
+4. Click **Install**
+
+Or install via CLI:
+```bash
+code --install-extension vscode-complexity-hints
+```
 
 A VS Code extension that shows cyclomatic complexity scores as faded inline annotations next to each function definition — directly in your editor, without running a separate tool.
 
