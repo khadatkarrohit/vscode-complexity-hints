@@ -72,7 +72,23 @@ export function activate(context: vscode.ExtensionContext): void {
     }
   });
 
-  context.subscriptions.push(onChangeEditor, onSave, onConfigChange, decorator);
+  // Toggle command
+  const toggleCommand = vscode.commands.registerCommand(
+    'vscode-complexity-hints.toggle',
+    () => {
+      enabled = !enabled;
+      const editor = vscode.window.activeTextEditor;
+      if (editor) {
+        applyToEditor(editor, decorator, enabled);
+      }
+      vscode.window.setStatusBarMessage(
+        `Complexity Hints: ${enabled ? 'enabled' : 'disabled'}`,
+        3000
+      );
+    }
+  );
+
+  context.subscriptions.push(onChangeEditor, onSave, onConfigChange, toggleCommand, decorator);
 }
 
 export function deactivate(): void {
