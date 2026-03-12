@@ -1,0 +1,70 @@
+{
+  "name": "vscode-complexity-hints",
+  "displayName": "Complexity Hints",
+  "description": "Shows cyclomatic complexity score inline next to each function definition",
+  "version": "0.1.0",
+  "publisher": "personal",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "complexity",
+    "cyclomatic",
+    "hints",
+    "typescript",
+    "javascript"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascriptreact"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-complexity-hints.toggle",
+        "title": "Toggle Complexity Hints",
+        "category": "Complexity"
+      }
+    ],
+    "configuration": {
+      "title": "Complexity Hints",
+      "properties": {
+        "complexityHints.lowThreshold": {
+          "type": "number",
+          "default": 5,
+          "description": "Complexity score below which a function is considered low complexity (shown in green)"
+        },
+        "complexityHints.highThreshold": {
+          "type": "number",
+          "default": 10,
+          "description": "Complexity score above which a function is considered high complexity (shown in red)"
+        },
+        "complexityHints.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable complexity hints"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^6.18.0"
+  }
+}
