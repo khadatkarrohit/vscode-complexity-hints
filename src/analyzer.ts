@@ -43,7 +43,7 @@ function countDecisionPoints(node: TSESTree.Node, stopAt?: TSESTree.Node): numbe
   }
 
   for (const key of Object.keys(node)) {
-    const child = (node as Record<string, unknown>)[key];
+    const child = (node as unknown as Record<string, unknown>)[key];
     if (child && typeof child === 'object') {
       if (Array.isArray(child)) {
         for (const item of child) {
@@ -124,7 +124,7 @@ function walkAST(
 
   for (const key of Object.keys(node)) {
     if (key === 'parent') continue;
-    const child = (node as Record<string, unknown>)[key];
+    const child = (node as unknown as Record<string, unknown>)[key];
     if (child && typeof child === 'object') {
       if (Array.isArray(child)) {
         for (const item of child) {
